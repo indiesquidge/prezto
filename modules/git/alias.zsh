@@ -30,6 +30,23 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   # Git
   alias g='git'
 
+  # Status (s)
+  alias gs='git status'
+
+  # Push (P)
+  alias gPf='git push --force-with-lease'
+  alias gPb='git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
+
+  # Stash (st)
+  alias gst='git stash'
+  alias gstp='git stash pop'
+  alias gsta='git stash apply'
+  alias gstd='git stash drop'
+
+  # Abort
+  alias gma='git merge --abort'
+  alias gra='git rebase --abort'
+
   # Branch (b)
   alias gb='git branch'
   alias gba='git branch --all --verbose'
@@ -93,6 +110,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
 
   # Fetch (f)
   alias gf='git fetch'
+  alias gfp='git fetch --prune'
   alias gfa='git fetch --all'
   alias gfc='git clone'
   alias gfcr='git clone --recurse-submodules'
@@ -184,6 +202,9 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias giR='git reset --patch'
   alias gix='git rm -r --cached'
   alias giX='git rm -rf --cached'
+  alias giA='git add -A'
+  alias gid='git diff'
+  alias giap='git add --patch'
 
   # Log (l)
   alias gl='git log --topo-order --pretty=format:"${_git_log_medium_format}"'
@@ -194,6 +215,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias glb='git log --topo-order --pretty=format:"${_git_log_brief_format}"'
   alias glc='git shortlog --summary --numbered'
   alias glS='git log --show-signature'
+  alias gl='git log --graph --pretty=format:"%Cred%h%Creset %C(yellow)%G? -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 
   # Merge (m)
   alias gm='git merge'
@@ -229,9 +251,12 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gRp='git remote prune'
   alias gRs='git remote show'
   alias gRb='git-hub-browse'
+  alias gRv='git remote --verbose'
+  alias gRo='git remote add origin'
+  alias gRu='git remote add upstream'
 
   # Stash (s)
-  alias gs='git stash'
+  alias gst='git stash'
   alias gsa='git stash apply'
   alias gsx='git stash drop'
   alias gsX='git-stash-clear-interactive'
