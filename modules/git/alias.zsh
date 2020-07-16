@@ -34,8 +34,8 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gs='git status'
 
   # Push (P)
-  alias gPf='git push --force-with-lease'
   alias gPb='git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
+  alias gPf='gPb --force-with-lease'
 
   # Stash (st)
   alias gst='git stash'
