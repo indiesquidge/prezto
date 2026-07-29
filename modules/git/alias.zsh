@@ -29,6 +29,10 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   # Git
   alias g='git'
 
+  # Abort
+  alias gma='git merge --abort'
+  alias gra='git rebase --abort'
+
   # Branch (b)
   alias gb='git branch'
   alias gba='git branch --all --verbose'
@@ -99,6 +103,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gfma='git pull --autostash'
   alias gfr='git pull --rebase'
   alias gfra='git pull --rebase --autostash'
+  alias gfp='git fetch --prune'
 
   # Flow (F)
   alias gFi='git flow init'
@@ -183,6 +188,9 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias giR='git reset --patch'
   alias gix='git rm -r --cached'
   alias giX='git rm -r --force --cached'
+  alias giA='git add -A'
+  alias gid='git diff'
+  alias giap='git add --patch'
 
   # Log (l)
   alias gl='git log --topo-order --pretty=format:"$_git_log_medium_format"'
@@ -193,6 +201,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias glb='git log --topo-order --pretty=format:"$_git_log_brief_format"'
   alias glc='git shortlog --summary --numbered'
   alias glS='git log --topo-order --show-signature --pretty=format:"${_git_log_medium_format}"'
+  alias gl='git log --graph --pretty=format:"%Cred%h%Creset %C(yellow)%G? -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 
   # Merge (m)
   alias gm='git merge'
@@ -203,7 +212,8 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
 
   # Push (p)
   alias gp='git push'
-  alias gpf='git push --force-with-lease'
+  alias gpb='git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
+  alias gpf='gpb --force-with-lease'
   alias gpF='git push --force'
   alias gpa='git push --all'
   alias gpA='git push --all && git push --tags'
@@ -228,20 +238,26 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gRp='git remote prune'
   alias gRs='git remote show'
   alias gRb='git-hub-browse'
+  alias gRv='git remote --verbose'
+  alias gRo='git remote add origin'
+  alias gRu='git remote add upstream'
 
   # Stash (s)
-  alias gs='git stash'
+  alias gst='git stash'
   alias gsa='git stash apply'
   alias gsx='git stash drop'
   alias gsX='git-stash-clear-interactive'
   alias gsl='git stash list'
   alias gsL='git-stash-dropped'
   alias gsd='git stash show --patch --stat'
-  alias gsp='git stash pop'
+  alias gstp='git stash pop'
   alias gsr='git-stash-recover'
   alias gss='git stash save --include-untracked'
   alias gsS='git stash save --patch --no-keep-index'
   alias gsw='git stash save --include-untracked --keep-index'
+
+  # Status (s)
+  alias gs='git status'
 
   # Submodule (S)
   alias gS='git submodule'
